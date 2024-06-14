@@ -3,7 +3,7 @@
 external_components:
   - source:
       type: git
-      url: https://github.com/ratgdo/esphome-ratgdo
+      url: https://github.com/Chunkywolf/esphome-ratgdo-tailwind
     refresh: 1s
 
 preferences:
@@ -138,11 +138,7 @@ binary_sensor:
     filters:
       - delayed_on_off: 500ms
     on_press:
-      - if:
-          condition:
-            binary_sensor.is_off: ${id_prefix}_dry_contact_close
-          then:
-            - cover.open: ${id_prefix}_garage_door
+      - cover.toggle: ${id_prefix}_garage_door
   - platform: gpio
     id: "${id_prefix}_dry_contact_close"
     pin:
@@ -156,11 +152,7 @@ binary_sensor:
     filters:
       - delayed_on_off: 500ms
     on_press:
-      - if:
-          condition:
-            binary_sensor.is_off: ${id_prefix}_dry_contact_open
-          then:
-            - cover.close: ${id_prefix}_garage_door
+      - cover.toggle: ${id_prefix}_garage_door
   - platform: gpio
     id: "${id_prefix}_dry_contact_light"
     pin:
@@ -217,9 +209,9 @@ cover:
     name: "Door"
     ratgdo_id: ${id_prefix}
     on_closed:
-      - switch.turn_off: ${id_prefix}_status_door
-    on_open:
       - switch.turn_on: ${id_prefix}_status_door
+    on_opening:
+      - switch.turn_off: ${id_prefix}_status_door
 
 light:
   - platform: ratgdo

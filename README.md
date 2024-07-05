@@ -16,11 +16,11 @@ Most of this content was created and is maintained by Paul Wieland
 - In esphome, edit the device, replace:
     
 packages:<br>
-  ratgdo.esphome: github://ratgdo/esphome-ratgdo/v25iboard.yaml@main
+&nbsp;ratgdo.esphome: github://ratgdo/esphome-ratgdo/v25iboard.yaml@main
 
 - with:
 
 packages:<br>
-  ratgdo.esphome: github://Chunkywolf/esphome-ratgdo-tailwind/v25iboard.yaml@main
+&nbsp;ratgdo.esphome: github://Chunkywolf/esphome-ratgdo-tailwind/v25iboard.yaml@main
 
 - Click install, and choose wirelessly.
